@@ -2,18 +2,20 @@ import datetime
 import math
 
 current_date = datetime.date.today()
-day_of_year  = (current_date.timetuple().tm_yday) - 1
+day_of_year  = (current_date.timetuple().tm_yday)
 
-#day_of_year = 0 # For testing purposes. Set value from 0 to 365
+#day_of_year = 1 # For testing purposes. Set value from 1 to 365
 
-if day_of_year >= 364:
+if day_of_year >= 365:
     percent_remaining = 0.0
+elif day_of_year == 1:
+    percent_remaining = 100.0
 else:
     percent_remaining = int((1 - (day_of_year / 365.0)) * 1000.0) / 10.0
 
-# If percent remaining is less than 0.3 of any number, round it down and remove decimal.
+# If percent remaining is less than 0.2 of any number, round it down and remove decimal.
 
-if int(str(percent_remaining).split('.')[1]) < 3:
+if int(str(percent_remaining).split('.')[1]) < 2:
     percent_remaining = int(percent_remaining)
 
 # Build a string that is the percentage rounded to the nearest 5
