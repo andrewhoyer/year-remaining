@@ -13,9 +13,9 @@ elif day_of_year == 1:
 else:
     percent_remaining = int((1 - (day_of_year / 365.0)) * 1000.0) / 10.0
 
-# If percent remaining is less than 0.2 of any number, round it down and remove decimal.
+# If percent remaining is less than 0.3 of any number, round it down and remove decimal.
 
-if int(str(percent_remaining).split('.')[1]) < 2:
+if int(str(percent_remaining).split('.')[1]) < 3:
     percent_remaining = int(percent_remaining)
 
 # Build a string that is the percentage rounded to the nearest 5
