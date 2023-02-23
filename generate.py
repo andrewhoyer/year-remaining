@@ -67,4 +67,4 @@ progress_bar_str = ''.join(progress_bar_array) + ' ' + str(percent_remaining) + 
 
 output = [{'day_of_year': day_of_year, 'percent_remaining': percent_remaining, 'progress_bar_str': progress_bar_str}]
 
-print(output)
+print(progress_bar_str)
