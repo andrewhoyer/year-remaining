@@ -17,6 +17,7 @@ Once complete, any action that follows will have access to the progress bar text
 
 Execute the script from the command line to get an output of the progress bar and percentage text.
 
-```% python3 generate.py
+```
+% python3 generate.py
 ░▓▓▓▓▓▓▓▓▓ 85.4%
 ```
