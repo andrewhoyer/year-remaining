@@ -1,5 +1,6 @@
 import datetime
 import math
+import decimal
 
 current_date = datetime.date.today()
 day_of_year  = (current_date.timetuple().tm_yday)
@@ -11,13 +12,18 @@ if day_of_year >= 365:
 elif day_of_year == 1:
     percent_remaining = 100.0
 else:
-    percent_remaining = int((1 - (day_of_year / 365.0)) * 1000.0) / 10.0
-
-# If percent remaining is less than 0.3 of any number, round it down and remove decimal.
-
-if int(str(percent_remaining).split('.')[1]) < 3:
-    percent_remaining = int(percent_remaining)
-
+    percent_remaining = (1 - (day_of_year / 365.0))
+    
+    if decimal.Decimal((str(percent_remaining).split('.')[1][2:5])) < 273:
+        # If percent remaining is less than 0.00273 of any integer, round it down and remove decimal.
+        # Each day is 0.00273% of the year.
+        # decimal is used to handle leading zeros properly.
+        percent_remaining = int(percent_remaining * 100)
+    
+    else:
+        # For all other days, round to once decimal point.
+        percent_remaining = int(percent_remaining * 1000.0) / 10.0
+    
 # Build a string that is the percentage rounded to the nearest 5
 
 str_array = []
