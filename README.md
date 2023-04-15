@@ -21,3 +21,10 @@ Execute the script from the command line to get an output of the progress bar an
 % python3 generate.py
 ░▓▓▓▓▓▓▓▓▓ 85.4%
 ```
+
+## Year Remaining Twitter account
+
+This code is being used to power a Twitter account that posts a daily tweet showing the percentage of time remaining in the year:
+
+[@year_remaining](https://twitter.com/year_remaining)
+
