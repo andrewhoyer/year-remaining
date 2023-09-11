@@ -2,15 +2,16 @@ import datetime
 import math
 import decimal
 
-current_date = datetime.date.today()
-day_of_year  = (current_date.timetuple().tm_yday)
+current_date    = datetime.date.today()
+day_of_year     = (current_date.timetuple().tm_yday)
+integer_percent = True
 
 #day_of_year = 1 # For testing purposes. Set value from 1 to 365
 
 if day_of_year >= 365:
-    percent_remaining = 0.0
+    percent_remaining = 0
 elif day_of_year == 1:
-    percent_remaining = 100.0
+    percent_remaining = 100
 else:
     percent_remaining = (1 - (day_of_year / 365.0))
     
@@ -23,6 +24,9 @@ else:
     else:
         # For all other days, round to once decimal point.
         percent_remaining = int(percent_remaining * 1000.0) / 10.0
+
+        # Set flag indicating a non-integer percent
+        integer_percent = False
     
 # Build a string that is the percentage rounded to the nearest 5
 
@@ -71,6 +75,6 @@ while counter > 0:
 
 progress_bar_str = ''.join(progress_bar_array) + ' ' + str(percent_remaining) + '%'
 
-output = [{'day_of_year': day_of_year, 'percent_remaining': percent_remaining, 'progress_bar_str': progress_bar_str}]
+output = [{'day_of_year': day_of_year, 'percent_remaining': percent_remaining, 'progress_bar_str': progress_bar_str, 'integer_percent': integer_percent}]
 
 print(progress_bar_str)
