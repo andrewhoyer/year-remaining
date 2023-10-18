@@ -16,8 +16,8 @@ else:
     percent_remaining = (1 - (day_of_year / 365.0))
     
     if decimal.Decimal((str(percent_remaining).ljust(7, '0').split('.')[1][2:5])) <= 273:
-        # If percent remaining is less than or equal to 0.00273 of any integer, round it down and remove decimal.
-        # Each day is 0.00273% of the year.
+        # If percent remaining is less than or equal to 0.273 of any integer, round it down and remove decimal.
+        # Each day is 0.273% of the year.
         # decimal is used to handle leading zeros properly.
         percent_remaining = int(percent_remaining * 100)
     
