@@ -24,7 +24,7 @@ Execute the script from the command line to get an output of the progress bar an
 
 ## Year Remaining Twitter account
 
-This code is being used to power a Twitter account that posts a daily tweet showing the percentage of time remaining in the year:
+This code is being used to power an 𝕏 account that regularly posts the percentage of time remaining in the year:
 
-[@year_remaining](https://twitter.com/year_remaining)
+[@year_remaining](https://x.com/year_remaining)
 

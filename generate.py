@@ -1,19 +1,21 @@
+import calendar
 import datetime
-import math
 import decimal
+import math
 
 current_date    = datetime.date.today()
 day_of_year     = (current_date.timetuple().tm_yday)
+days_in_year    = 365.0 + int(calendar.isleap(current_date.year))
 integer_percent = True
 
-#day_of_year = 1 # For testing purposes. Set value from 1 to 365
+#day_of_year = 1 # For testing purposes. Set value from 1 to 365 (366 for leap year)
 
-if day_of_year >= 365:
+if day_of_year >= int(days_in_year):
     percent_remaining = 0
 elif day_of_year == 1:
     percent_remaining = 100
 else:
-    percent_remaining = (1 - (day_of_year / 365.0))
+    percent_remaining = (1 - (day_of_year / days_in_year))
     
     if decimal.Decimal((str(percent_remaining).ljust(7, '0').split('.')[1][2:5])) <= 273:
         # If percent remaining is less than or equal to 0.273 of any integer, round it down and remove decimal.
