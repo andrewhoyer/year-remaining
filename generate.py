@@ -10,14 +10,12 @@ integer_percent = True
 
 #day_of_year = 1 # For testing purposes. Set value from 1 to 365 (366 for leap year)
 
-if day_of_year >= int(days_in_year):
-    percent_remaining = 0
-elif day_of_year == 1:
+if day_of_year == 1:
     percent_remaining = 100
 else:
-    percent_remaining = (1 - (day_of_year / days_in_year))
+    percent_remaining = round((1 - (day_of_year / days_in_year)), 9)
     
-    if decimal.Decimal((str(percent_remaining).ljust(7, '0').split('.')[1][2:5])) <= 273:
+    if decimal.Decimal((str(percent_remaining).ljust(7, '0').split('.')[1][2:5])) < 273:
         # If percent remaining is less than or equal to 0.273 of any integer, round it down and remove decimal.
         # Each day is 0.273% of the year.
         # decimal is used to handle leading zeros properly.
@@ -79,5 +77,4 @@ progress_bar_str = ''.join(progress_bar_array) + ' ' + str(percent_remaining) + 
 
 output = [{'day_of_year': day_of_year, 'percent_remaining': percent_remaining, 'progress_bar_str': progress_bar_str, 'integer_percent': integer_percent}]
 
-print(progress_bar_str)
-
+print(progress_bar_str, output)
